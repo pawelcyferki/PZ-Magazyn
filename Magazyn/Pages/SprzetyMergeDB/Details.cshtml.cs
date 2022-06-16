@@ -7,18 +7,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Magazyn.Data;
 using Magazyn.Pages.Models;
-using Magazyn.Pages.SprzetyMergeDB;
 using Microsoft.AspNetCore.Authorization;
 using Magazyn.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace Magazyn.Pages.SorzetyMergeDB
+namespace Magazyn.Pages.SprzetyMergeDB
 {
+    [Authorize(Roles = "Admin,Operator")]
     public class DetailsModel : Klasa_Bazowa
     {
-        private readonly Magazyn.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public DetailsModel(
         ApplicationDbContext context,
@@ -29,7 +29,7 @@ namespace Magazyn.Pages.SorzetyMergeDB
             _context = context;
         }
 
-      public Sprzet Sprzet { get; set; } = default!;
+        public Sprzet Sprzet { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

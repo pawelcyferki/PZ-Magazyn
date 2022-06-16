@@ -12,9 +12,9 @@ namespace Magazyn.Pages.Lokacje
 {
     public class DeleteModel : PageModel
     {
-        private readonly Magazyn.Data.MagazynContext _context;
+        private readonly Magazyn.Data.ApplicationDbContext _context;
 
-        public DeleteModel(Magazyn.Data.MagazynContext context)
+        public DeleteModel(Magazyn.Data.ApplicationDbContext context)
         {
             _context = context;
         }

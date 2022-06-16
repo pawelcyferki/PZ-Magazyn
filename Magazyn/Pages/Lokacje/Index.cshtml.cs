@@ -12,9 +12,9 @@ namespace Magazyn.Pages.Lokacje
 {
     public class IndexModel : PageModel
     {
-        private readonly Magazyn.Data.MagazynContext _context;
+        private readonly Magazyn.Data.ApplicationDbContext _context;
 
-        public IndexModel(Magazyn.Data.MagazynContext context)
+        public IndexModel(Magazyn.Data.ApplicationDbContext context)
         {
             _context = context;
         }

@@ -1,5 +1,5 @@
 ﻿@page
-@model Magazyn.Pages.SorzetyMergeDB.DetailsModel
+@model             DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -53,12 +53,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Sprzet.typ)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Sprzet.osobaPrzypisanaID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Sprzet.osobaPrzypisanaID)
-        </dd>
+        
     </dl>
 </div>
 <div>

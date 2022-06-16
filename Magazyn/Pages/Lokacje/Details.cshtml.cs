@@ -12,9 +12,9 @@ namespace Magazyn.Pages.Lokacje
 {
     public class DetailsModel : PageModel
     {
-        private readonly Magazyn.Data.MagazynContext _context;
+        private readonly Magazyn.Data.ApplicationDbContext _context;
 
-        public DetailsModel(Magazyn.Data.MagazynContext context)
+        public DetailsModel(Magazyn.Data.ApplicationDbContext context)
         {
             _context = context;
         }

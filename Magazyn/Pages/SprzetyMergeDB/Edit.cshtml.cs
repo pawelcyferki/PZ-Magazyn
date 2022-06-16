@@ -7,15 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Magazyn.Data;
+using Microsoft.AspNetCore.Authorization;
 using Magazyn.Pages.Models;
 
-namespace Magazyn.Pages.SorzetyMergeDB
+namespace Magazyn.Pages.SprzetyMergeDB
 {
+    [Authorize(Roles = "Admin,Operator")]
     public class EditModel : PageModel
     {
-        private readonly Magazyn.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EditModel(Magazyn.Data.ApplicationDbContext context)
+        public EditModel(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -30,7 +32,7 @@ namespace Magazyn.Pages.SorzetyMergeDB
                 return NotFound();
             }
 
-            var sprzet =  await _context.Sprzet.FirstOrDefaultAsync(m => m.Id == id);
+            var sprzet = await _context.Sprzet.FirstOrDefaultAsync(m => m.Id == id);
             if (sprzet == null)
             {
                 return NotFound();
@@ -71,7 +73,7 @@ namespace Magazyn.Pages.SorzetyMergeDB
 
         private bool SprzetExists(int id)
         {
-          return (_context.Sprzet?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Sprzet?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

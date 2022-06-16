@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Magazyn.Pages.Models;
 
+
 namespace Magazyn.Data
 {
     public class ApplicationDbContext : IdentityDbContext
@@ -12,5 +13,6 @@ namespace Magazyn.Data
         }
         public DbSet<Magazyn.Pages.Models.Sprzet>? Sprzet { get; set; }
         public DbSet<Magazyn.Pages.Models.Lokacja>? Lokacja { get; set; }
+        
     }
 }

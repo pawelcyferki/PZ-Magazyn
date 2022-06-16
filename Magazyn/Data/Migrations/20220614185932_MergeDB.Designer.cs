@@ -81,9 +81,6 @@ namespace Magazyn.Data.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.Property<string>("osobaPrzypisanaID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("producent")
                         .IsRequired()

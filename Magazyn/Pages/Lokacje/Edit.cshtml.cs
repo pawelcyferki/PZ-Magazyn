@@ -13,9 +13,9 @@ namespace Magazyn.Pages.Lokacje
 {
     public class EditModel : PageModel
     {
-        private readonly Magazyn.Data.MagazynContext _context;
+        private readonly Magazyn.Data.ApplicationDbContext _context;
 
-        public EditModel(Magazyn.Data.MagazynContext context)
+        public EditModel(Magazyn.Data.ApplicationDbContext context)
         {
             _context = context;
         }

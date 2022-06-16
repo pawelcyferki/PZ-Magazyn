@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Magazyn.Pages.Models;
 
+using Microsoft.EntityFrameworkCore;
 
 namespace Magazyn.Pages.Models
 {
@@ -17,21 +19,20 @@ namespace Magazyn.Pages.Models
         public string producent { get; set; } = string.Empty;
         [StringLength(60, MinimumLength = 3)]
         [Required]
-        public string Model     { get; set; } = string.Empty;
+        public string Model { get; set; } = string.Empty;
         [StringLength(60, MinimumLength = 3)]
         [Required]
-        public string osobaPrzypisana   { get; set; } = string.Empty;
+        public string osobaPrzypisana { get; set; } = string.Empty;
         [StringLength(60, MinimumLength = 3)]
         [Required]
-        public string lokalizacja       { get; set; } = string.Empty;
+        public string lokalizacja { get; set; } = string.Empty;
         [StringLength(60, MinimumLength = 3)]
         [Required]
-        public string status        { get; set; } = string.Empty;
+        public string status { get; set; } = string.Empty;
         [StringLength(60, MinimumLength = 3)]
         [Required]
-        public string typ { get; set; } = string.Empty; 
+        public string typ { get; set; } = string.Empty;
 
-        public string osobaPrzypisanaID  { get; set; }
-
+       
     }
 }

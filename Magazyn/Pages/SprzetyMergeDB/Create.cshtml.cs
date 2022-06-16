@@ -12,12 +12,13 @@ using Microsoft.AspNetCore.Authorization;
 using Magazyn.Authorization;
 using Microsoft.AspNetCore.Identity;
 
-namespace Magazyn.Pages.SorzetyMergeDB
+namespace Magazyn.Pages.SprzetyMergeDB
 {
+
     [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
-        private readonly Magazyn.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public CreateModel(ApplicationDbContext context)
         {
@@ -31,18 +32,18 @@ namespace Magazyn.Pages.SorzetyMergeDB
 
         [BindProperty]
         public Sprzet Sprzet { get; set; } = default!;
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Sprzet == null || Sprzet == null)
+            if (!ModelState.IsValid || _context.Sprzet == null || Sprzet == null)
             {
                 return Page();
             }
-          
 
-          
+
+
             _context.Sprzet.Add(Sprzet);
             await _context.SaveChangesAsync();
 

@@ -1,18 +1,27 @@
-﻿using Magazyn.Data;
+using Magazyn.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 using Magazyn.Authorization;
 
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+   options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+//var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));;
+
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+  //  .AddEntityFrameworkStores<ApplicationDbContext>();;
+
+// Add services to the container.
+
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
         .AddRoles<IdentityRole>()
@@ -21,7 +30,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<MagazynContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MagazynContext") ?? throw new InvalidOperationException("Connection string 'MagazynContext' not found.")));
 
-builder.Services.AddScoped<IAuthorizationHandler, czyUserJestPrzypisanyDoSprzetuSprawdzenie>();
+
 builder.Services.AddScoped<IAuthorizationHandler, czyUserJestAdminem>();
 
 

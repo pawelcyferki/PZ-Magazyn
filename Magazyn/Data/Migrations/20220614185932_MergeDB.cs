@@ -36,8 +36,8 @@ namespace Magazyn.Data.Migrations
                     osobaPrzypisana = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     lokalizacja = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     status = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    typ = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    osobaPrzypisanaID = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    typ = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false)
+                  
                 },
                 constraints: table =>
                 {

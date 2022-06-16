@@ -7,20 +7,22 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Magazyn.Data;
 using Magazyn.Pages.Models;
+using Microsoft.AspNetCore.Authorization;
 
-namespace Magazyn.Pages.SorzetyMergeDB
+namespace Magazyn.Pages.SprzetyMergeDB
 {
+    [Authorize(Roles = "Admin,Operator")]
     public class DeleteModel : PageModel
     {
-        private readonly Magazyn.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public DeleteModel(Magazyn.Data.ApplicationDbContext context)
+        public DeleteModel(ApplicationDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-      public Sprzet Sprzet { get; set; } = default!;
+        public Sprzet Sprzet { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,7 +37,7 @@ namespace Magazyn.Pages.SorzetyMergeDB
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Sprzet = sprzet;
             }

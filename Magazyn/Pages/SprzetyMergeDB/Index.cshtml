@@ -1,5 +1,5 @@
 ﻿@page
-@model Magazyn.Pages.SorzetyMergeDB.IndexModel
+@model             IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -10,6 +10,17 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<form>
+    <p>
+                Lokalizacja: <select asp-for="wybranaLokalizacja" asp-items="Model.Lokalizacje">
+           <option value="">Wszystkie</option>
+        </select>
+        <br />
+        <br />
+        SN: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Wyszukaj" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -34,9 +45,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Sprzet[0].typ)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sprzet[0].osobaPrzypisanaID)
-            </th>
+          
             <th></th>
         </tr>
     </thead>
@@ -64,9 +73,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.typ)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.osobaPrzypisanaID)
-            </td>
+          
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
