@@ -21,5 +21,6 @@ namespace Magazyn.Pages.SprzetyMergeDB
             UserManager = userManager;
             AuthorizationService = authorizationService;
         }
+        public Task<IdentityUser> GetCurrentUserAsync() => UserManager.GetUserAsync(HttpContext.User);
     }
 }
