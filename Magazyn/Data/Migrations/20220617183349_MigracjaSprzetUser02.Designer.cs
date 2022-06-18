@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Magazyn.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220615183314_Test03")]
-    partial class Test03
+    [Migration("20220617183349_MigracjaSprzetUser02")]
+    partial class MigracjaSprzetUser02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,8 +84,6 @@ namespace Magazyn.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
-
-                
 
                     b.Property<string>("producent")
                         .IsRequired()

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Magazyn.Pages.SprzetyMergeDB
 {
-    [Authorize(Roles = "Admin,Operator")]
+    [Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
     {
         private readonly ApplicationDbContext _context;

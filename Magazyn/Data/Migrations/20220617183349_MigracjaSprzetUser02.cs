@@ -4,7 +4,7 @@
 
 namespace Magazyn.Data.Migrations
 {
-    public partial class Test03 : Migration
+    public partial class MigracjaSprzetUser02 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

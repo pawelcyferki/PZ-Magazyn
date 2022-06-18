@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Magazyn.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220616151543_DodanieTabeliUserSprzet")]
-    partial class DodanieTabeliUserSprzet
+    [Migration("20220617181622_MigracjaSprzetUser01")]
+    partial class MigracjaSprzetUser01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

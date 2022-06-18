@@ -15,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Magazyn.Pages.SprzetyMergeDB
 {
-    [Authorize(Roles = "Admin,Operator")]
+    [Authorize(Roles = "Admin,Operator, User")]
     public class przypisanySprzet : Klasa_Bazowa
     {
         private readonly ApplicationDbContext _context;
@@ -28,21 +28,45 @@ namespace Magazyn.Pages.SprzetyMergeDB
         {
             _context = context;
         }
+        public int GetIdSprzetu(int? IdSprzetu)
+        {
+            var user = GetCurrentUserAsync();
+            IdSprzetu = user?.Id;
+            int sprzetIdQuery = 0;
 
+            IEnumerable<int> SprzetIdUserSprzetQuery = from m in _context.UserSprzet
+                                                       where IdSprzetu == m.SprzetId
+                                                       select m.SprzetId;
+            foreach (int sprzetId in SprzetIdUserSprzetQuery)
+            {
+                if (sprzetId != null)
+                {
+                    sprzetIdQuery = sprzetId;
+                }
+             
+            }
+            return 0;
+        }
         public Sprzet Sprzet { get; set; } = default;
+        public AspNetUserSprzet UserSprzet { get; set; } = default;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-             IQueryable<int> IdSprzetuQuery = from m in _context.Sprzet
+     
+        
+          
+     
+                IQueryable<int> IdSprzetuQuery = from m in _context.Sprzet
                                             select m.Id;
+     
             if (id == null || _context.Sprzet == null)
             {
                 return NotFound();
             }
-            var user = await GetCurrentUserAsync();
-            var userId = user?.Id;
-            var sprzet = await _context.Sprzet.FirstOrDefaultAsync(m => m.Id == id);
-            if (sprzet == null || user == null)
+     
+            
+        var sprzet = await _context.Sprzet.FirstOrDefaultAsync(m => m.Id == id);
+            if (sprzet == null )
             {
                 return NotFound();
             }
