@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Magazyn.Areas.Identity.Pages.Account.Manage
 {
-    [Authorize(Roles = "Admin,Operator")]
+    [Authorize(Roles = "Admin,Operator, User")]
     public class IndexModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;

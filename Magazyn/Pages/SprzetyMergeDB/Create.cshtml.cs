@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Magazyn.Data;
 using Magazyn.Pages.Models;
-using Magazyn.Pages.Sprzety;
+
 using Microsoft.AspNetCore.Authorization;
-using Magazyn.Authorization;
+
 using Microsoft.AspNetCore.Identity;
 
 namespace Magazyn.Pages.SprzetyMergeDB

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Magazyn.Data;
 using Magazyn.Pages.Models;
 using Microsoft.AspNetCore.Authorization;
-using Magazyn.Authorization;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

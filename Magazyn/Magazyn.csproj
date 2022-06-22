@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,6 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-Magazyn-0A8DC3A6-3CA2-4FE3-B7A5-14D7CE4705AD</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\KontaUzytkownikow\**" />
+    <Content Remove="Pages\KontaUzytkownikow\**" />
+    <EmbeddedResource Remove="Pages\KontaUzytkownikow\**" />
+    <None Remove="Pages\KontaUzytkownikow\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.5" />
@@ -22,10 +29,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
-  </ItemGroup>
- 
-  <ItemGroup>
-    <Folder Include="Pages\KontaUzytkownikow\" />
   </ItemGroup>
 
 </Project>

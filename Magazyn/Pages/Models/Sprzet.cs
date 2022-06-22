@@ -22,6 +22,7 @@ namespace Magazyn.Pages.Models
         public string Model { get; set; } = string.Empty;
         [StringLength(60, MinimumLength = 3)]
         [Required]
+        [EmailAddress]
         public string osobaPrzypisana { get; set; } = string.Empty;
         [StringLength(60, MinimumLength = 3)]
         [Required]
