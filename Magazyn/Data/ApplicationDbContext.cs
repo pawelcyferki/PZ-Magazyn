@@ -14,5 +14,6 @@ namespace Magazyn.Data
         public DbSet<Magazyn.Pages.Models.Sprzet>? Sprzet { get; set; }
         public DbSet<Magazyn.Pages.Models.Lokacja>? Lokacja { get; set; }
         public DbSet<Magazyn.Pages.Models.AspNetUserSprzet>? UserSprzet { get; set; }
+        
     }
 }

@@ -29,9 +29,9 @@
                 <span asp-validation-for="Sprzet.Model" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Sprzet.osobaPrzypisana" class="control-label"></label>
-                <input asp-for="Sprzet.osobaPrzypisana" class="form-control" />
-                <span asp-validation-for="Sprzet.osobaPrzypisana" class="text-danger"></span>
+               Osoba przypisana: <select asp-for="Sprzet.osobaPrzypisana" asp-items="Model.UserIdList">
+                   <span asp-validation-for="Sprzet.osobaPrzypisana" class="text-danger"></span>
+                                 </select>
             </div>
             <div class="form-group">
                 <label asp-for="Sprzet.lokalizacja" class="control-label"></label>
